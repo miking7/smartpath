@@ -99,3 +99,13 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# Espresso projects
+*.espressostorage
+*.esproj
+
+# Mac stuff
+.DS_Store
+
+# Uncommitted
+uncommitted.*
