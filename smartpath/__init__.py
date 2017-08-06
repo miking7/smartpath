@@ -1337,7 +1337,7 @@ class LocalMediaLengthConnector(SmartConnector):
       
       # start main function - calculate media file length in seconds using php-getid3 via external PHP call
       module_path = os.path.dirname(os.path.realpath(__file__))
-      cmd = "{MODPATH}/smartpath-getsecs.php '{SMARTFILEPATH}'".format(MODPATH=module_path, SMARTFILEPATH=smartFile.fullPath)
+      cmd = "{MODPATH}/php/getsecs.php '{SMARTFILEPATH}'".format(MODPATH=module_path, SMARTFILEPATH=smartFile.fullPath)
       returncode,stdout,stderr = shell_command(cmd)
       
       assert len(stderr) == 0, "Error with PHP smartpath-getsecs.php call:\n{}".format(stderr)	# throw error on stderr output - fundamental problems with PHP call
