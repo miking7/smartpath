@@ -395,7 +395,11 @@ class SmartPath(object):
       if "://" in somepath:
         url = somepath
       elif ":" in somepath:
-        smartpath = somepath
+        basename,sep,dummy = somepath.partition(":")
+        if not ((" " in basename) or ("/" in basename) or ("." in basename)):   # basename shound not contain a space, slash, or dot
+          smartpath = somepath
+        else:
+          path = somepath
       else:
         path = somepath
     
@@ -1627,6 +1631,8 @@ class S3Connector(SmartConnector):
     # copy the file to itself - only allowed if we 'REPLACE' the metadata
     s3file = self.s3resource.Object(smartFile.base.s3bucket, smartFile.s3key)
     metadata = s3file.metadata
+    # print "debug:", smartFile.url, removePrefix(smartFile.url, "s3://"), smartFile.base.s3bucket, smartFile.s3key, metadata
+    # print "debug:", smartFile.url
     s3file.copy_from(CopySource=removePrefix(smartFile.url, "s3://"), Metadata=metadata, MetadataDirective='REPLACE')
   
   
