@@ -1,7 +1,8 @@
 from setuptools import setup
 
 setup(name='smartpath',
-	version='0.12',
+	version='0.14',
+	python_requires='==2.7.*',
 	description='smartpath implements the SmartFileSystem class (and connector classes) to provide unified object-oriented access to filesystems of various protocols.  It draws a number of parallels to the Windows FileSystemObject',
 	url='http://github.com/miking7/smartpath',
 	author='Michael Engelbrecht',
